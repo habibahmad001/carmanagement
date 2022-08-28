@@ -13,7 +13,7 @@
                         <?php $row_count=0;?>
                         <div class="col-md-3 col-divi">
                         @foreach($jobslist as $job)
-                            <p><a href="/jobdetail/{{ $job->id }}">{{ $job->job_title }}</a></p>
+                            <p><a href="{{ URL::to("/jobdetail/" . $job->id) }}">{{ $job->job_title }}</a></p>
                             <?php $row_count++;?>
                             @if($row_count%5 == 0)
                                 </div>
@@ -28,7 +28,7 @@
                         <div class="col-md-3 col-divi">
                             @foreach($catdata as $k=>$v)
                                 <p>
-                                    <a href="/alljobs/{{ $k }}">
+                                    <a href="{{ URL::to("/alljobs/" . $k) }}">
                                      @foreach($v as $key=>$val)
                                          {{ $val }} ({{ $key }})
                                      @endforeach

@@ -14,7 +14,7 @@
 
                 <div class="panel-body">
                     Congragulation you'r account has been created successfuly, But it's not active now, Please wait for the admin approval.
-                    And <a href="/logout">Back Login</a> once you are active.
+                    And <a href="{!! URL::to("/logout") !!}">Back Login</a> once you are active.
                     </div>
                 </div>
             </div>

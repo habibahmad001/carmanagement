@@ -25,7 +25,7 @@
         <header>
             <div class="container-fluid">
                 <div class="logo-txt">
-                    <a href="/">Cars Management</a>
+                    <a href="{!! URL::to("/") !!}">Cars Management</a>
                 </div>
 
             </div>
@@ -33,7 +33,7 @@
 
         <!-- Banner Starts Here -->
         @yield('content')
-        
+
 
 
 

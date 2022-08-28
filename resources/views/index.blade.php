@@ -31,7 +31,7 @@
         <header>
             <div class="container-fluid">
                 <div class="logo-txt">
-                    <a href="/">Cars Management</a>
+                    <a href="{!! URL::to("/") !!}">Cars Management</a>
                 </div>
                 <div class="login-form">
 
@@ -70,9 +70,9 @@
         <!-- Banner Starts Here -->
         <section class="menu-section">
             <ul class="menu-ul">
-                <li><a href="/">Home</a></li>
-                <li><a href="/jobs/">Cars</a></li>
-                <li><a href="/contactus/">Contact us</a></li>
+                <li><a href="{!! URL::to("/") !!}">Home</a></li>
+                <li><a href="{!! URL::to("/jobs/") !!}">Cars</a></li>
+                <li><a href="{!! URL::to("/contactus/") !!}">Contact us</a></li>
             </ul>
         </section>
         <section class="banner">

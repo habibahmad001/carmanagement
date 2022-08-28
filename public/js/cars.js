@@ -1,4 +1,5 @@
 var url = $("#purl").val();
+
 //  function validatedateExist() {
 //   var startdate = $("#startDate").val();
 //

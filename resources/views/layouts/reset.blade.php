@@ -25,7 +25,7 @@
         <header>
             <div class="container-fluid">
                 <div class="logo-txt">
-                    <a href="/">Cars Management</a>
+                    <a href="{!! URL::to("/") !!}">Cars Management</a>
                 </div>
 
             </div>
@@ -34,17 +34,17 @@
             <ul class="menu-ul">
                 @if(Auth::user())
                     @if(Auth::user()->user_type == "employee")
-                        <li><a href="/employee_listing/">Cars Listing Page</a></li>
-                        <li><a href="/logout/">Logout</a></li>
+                        <li><a href="{!! URL::to("/employee_listing/") !!}">Cars Listing Page</a></li>
+                        <li><a href="{!! URL::to("/logout/") !!}">Logout</a></li>
                     @elseif(Auth::user()->user_type == "employer")
-                        <li><a href="/employer_listing/">Cars Listing Page</a></li>
-                        <li><a href="/create_job/">Create New Job</a></li>
-                        <li><a href="/logout/">Logout</a></li>
+                        <li><a href="{!! URL::to("/employer_listing/") !!}">Cars Listing Page</a></li>
+                        <li><a href="{!! URL::to("/create_job/") !!}">Create New Job</a></li>
+                        <li><a href="{!! URL::to("/logout/") !!}">Logout</a></li>
                     @endif
                 @else
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/jobs/">Cars</a></li>
-                    <li><a href="/contactus/">Contact us</a></li>
+                    <li><a href="{!! URL::to("/") !!}">Home</a></li>
+                    <li><a href="{!! URL::to("/jobs/") !!}">Cars</a></li>
+                    <li><a href="{!! URL::to("/contactus/") !!}">Contact us</a></li>
                 @endif
 
             </ul>
