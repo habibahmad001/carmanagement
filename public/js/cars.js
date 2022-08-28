@@ -1,3 +1,4 @@
+var url = $("#purl").val();
 //  function validatedateExist() {
 //   var startdate = $("#startDate").val();
 //
@@ -27,7 +28,7 @@
          duration: 500,
      });
 
-     $.get('/getcar/' + cars_id, function(data){
+     $.get( url + '/getcar/' + cars_id, function(data){
 
          $(".loading-container").fadeOut();
          $(".form-content-box").fadeIn();
@@ -53,7 +54,7 @@
 
 $(".del-btn").click(function () {
     var cars_id = $(this).attr('data-id');
-    $.get('/car/' + cars_id, function(data){
+    $.get( url + '/car/' + cars_id, function(data){
         window.location.reload();
     });
 });

@@ -13,6 +13,7 @@ use App\Models\Category;
 use App\Models\JobsTable;
 use App\Models\Level;
 use Auth;
+use Mail;
 
 //Enables us to output flash messaging
 use Session;
@@ -76,7 +77,7 @@ class JobsController extends Controller
         $resdata .= '<h4>Search Result List</h4><hr width="100%" />';
         if(count($jobres) > 0) {
             foreach($jobres as $v) {
-                $resdata .= "<p><a href='/jobdetail/".$v->id."'>" . $v->job_title ."</a><p />";
+                $resdata .= "<p><a href='" . URL::to( "/jobdetail/" . $v->id ) . "'>" . $v->job_title ."</a><p />";
             }
         } else {
             $resdata .= "<p> No result Found !!!<p />";
@@ -106,6 +107,29 @@ class JobsController extends Controller
          return redirect()->back()->with('message', 'Couldn\'t create Category!');
         }
 
+    }
+
+    public function Services(Request $data){
+
+        /********* Email ***********/
+        $first_name     = $data['first_name'];
+        $last_name      = $data['last_name'];
+        $email          = $data['email'];
+        $username       = $data['username'];
+        $password       = $data['password'];
+
+
+        Mail::send("emails.RegisterEmail", ['first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'username' => $username, 'password' => $password], function($message)  use ($email){
+            $message->to($email);
+            $message->subject("You'r account has been created successfully!!!");
+        });
+        /********* Email ***********/
+
+        return response(array(
+            'success' => true,
+            'data' => "",
+            'message' => "Email send successfully"
+        ),200,[]);
     }
 
     public function contact_us(Request $request){

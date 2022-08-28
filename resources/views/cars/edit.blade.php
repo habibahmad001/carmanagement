@@ -4,7 +4,7 @@
     <h3>Edit Cars</h3>
     <div class="close-icon"></div>
   </div>
-  <form method="POST" id="category_form" action="/car-update" accept-charset="UTF-8" onSubmit="return validate('edit-');">
+  <form method="POST" id="category_form" action="{!! URL::to("/car-update") !!}" accept-charset="UTF-8" onSubmit="return validate('edit-');">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" name="cars_id" id="edit-cars_id" value="">
     <div class="form-height-control">

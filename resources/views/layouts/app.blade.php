@@ -28,6 +28,7 @@
     <![endif]-->
 </head>
 <body>
+<input type="hidden" id="purl" value="{!! env("APP_URL") !!}">
   <div class="wrapper">
 		<header>
 			@if(session()->has('message'))

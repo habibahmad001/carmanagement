@@ -1,7 +1,7 @@
 
 <div class="sub-header">
   <h2>{{ $sub_heading }}</h2>
-  
+
   <a href="javascript:void(0)" class="delete-btn">Delete</a>
   @if(!isset($is_reload_btn))
     <div class="add-button"></div>
@@ -9,7 +9,7 @@
 
   @if($sub_heading=='Reports')
 <div class="report_form">
-<form style="width:50%; margin:2px auto;" method="POST" id="category_form" action="/reports" accept-charset="UTF-8" onSubmit="return validate();">
+<form style="width:50%; margin:2px auto;" method="POST" id="category_form" action="{!! URL::to("/reports") !!}" accept-charset="UTF-8" onSubmit="return validate();">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="form-group col-sm-3">
     <div class="form-line">

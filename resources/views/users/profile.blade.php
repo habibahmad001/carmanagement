@@ -62,7 +62,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                            
+
                                           @if(count($month_res)==0)
 
                                                 <tr>
@@ -77,8 +77,8 @@
                                                 <td>{{ $user->regular_point }}</td>
                                                 <td>{{ $user->superpoint }}</td>
                                             </tr>
-                                            @endforeach 
-                                            @endif 
+                                            @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -112,7 +112,7 @@
                         <strong>Success!</strong> Successfully updated your password.
                       </div>
                         <div class="col-md-12">
-                          <form method="POST" action="/reset_password">
+                          <form method="POST" action="{!! URL::to("/reset_password") !!}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="form-group default-box-shadow">
                                     <input type="password" name="old_password" id="old_password" class="form-control " placeholder="Current Password" autocomplete="off">

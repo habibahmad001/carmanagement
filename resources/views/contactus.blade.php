@@ -19,7 +19,7 @@
                         {{ $message }}
                     </div>
                     @endif
-                    <form name="cfrm" id="cfrm" method="post" action="/email_form">
+                    <form name="cfrm" id="cfrm" method="post" action="{!! URL::to("/email_form") !!}">
                         {{ csrf_field() }}
                         <input type="text" name="name" class="search-what" id="name" placeholder="Name"> <br />
                         <input type="email" name="email" class="search-what" id="email" placeholder="Email"> <br />

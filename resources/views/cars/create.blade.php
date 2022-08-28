@@ -4,7 +4,7 @@
     <h3>Create New Car</h3>
     <div class="close-icon"></div>
   </div>
-  <form method="POST" id="category_form" action="/cars" accept-charset="UTF-8" onSubmit="return validate('');">
+  <form method="POST" id="category_form" action="{!! URL::to("/cars") !!}" accept-charset="UTF-8" onSubmit="return validate('');">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" id="date_exist">
     <input type="hidden" id="date_greater">

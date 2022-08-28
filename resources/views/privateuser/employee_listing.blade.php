@@ -22,7 +22,7 @@
                 <div class="panel-body" id="search-result">
                     @if(isset($Jobs))
                         @foreach($Jobs as $job)
-                            <p><a href='/jobdetail/{{ $job->id }}'>{{ $job->job_title }}</a></p>
+                            <p><a href='{{ "/jobdetail/" . $job->id }}'>{{ $job->job_title }}</a></p>
                         @endforeach
                     @else
                         No result found !

@@ -1,5 +1,5 @@
 @extends('layouts.ques')
-@section('content') 
+@section('content')
 <div class="banner">
     <div class="banner-container">
         <div class="timer">
@@ -23,7 +23,7 @@
                 </div>
             @endif
             <center><p>@if(!empty($QuestionMsg)) {{ $QuestionMsg }} @else {{ $users[0]->question }} @endif</p></center>
-            <form method="POST" action="/saveanswer" name="frm" id="frm">
+            <form method="POST" action="{!! URL::to("/saveanswer") !!}" name="frm" id="frm">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="qid" id="qid" value="@if(isset($users[0]->id)) {{ $users[0]->id }} @endif">
                 <input type="hidden" name="uid" id="uid" value="{{ $uid }}">

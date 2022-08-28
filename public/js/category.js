@@ -1,4 +1,5 @@
 // show add form
+var url = $("#purl").val();
 $(".add-button").click(function () {
   reset_form();
   showFormOverlay();
@@ -20,7 +21,7 @@ $(".edit-icon").click(function () {
     duration: 500,
   });
 
-  $.get('/getCategory/' + cat_id, function(data){
+  $.get( url + '/getCategory/' + cat_id, function(data){
 
     $(".loading-container").fadeOut();
     $(".form-content-box").fadeIn();
@@ -37,7 +38,7 @@ $(".edit-icon").click(function () {
 });
 
 
- 
+
 
 function validateCategoryExist(type) {
 
@@ -45,7 +46,7 @@ function validateCategoryExist(type) {
 
     var category_id = $("#category_id").val();
     $.get('/category-exist?id=' + category_id +'&category=' + category, function(data){
-      
+
       if(data.exist) {
         $("#"+type+"category_already_exist").val('1');
         $("#"+type+"category-exist").css('color','#ff0000');
@@ -57,7 +58,7 @@ function validateCategoryExist(type) {
       }
     })
 
-  
+
 }
 
 
@@ -66,7 +67,7 @@ function reset_form() {
     $(this).removeClass('error');
   });
   $("#category").val('');
-  
+
 }
 
 function validate(type) {
@@ -80,7 +81,7 @@ function validate(type) {
   if(category == '') {
     errors.push("#"+ type +"category");
   }
- 
+
   if(category_exist) {
     errors.push("#"+ type +"category");
   }

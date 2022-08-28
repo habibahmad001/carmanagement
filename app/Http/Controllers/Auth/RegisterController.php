@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 use Mail;
@@ -83,11 +84,14 @@ class RegisterController extends Controller
             $username       = $data['username'];
             $password       = $data['password'];
 
-
-            Mail::send("emails.RegisterEmail", ['first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'username' => $username, 'password' => $password], function($message)  use ($email){
-                $message->to($email);
-                $message->subject("You'r account has been created successfully!!!");
-            });
+            $response = Http::post('http://127.0.0.1:8081/api/emailservice', [
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'username' => $username,
+                'password' => $password
+            ]);
+//            dd($response);
             /********* Email ***********/
             return User::create([
                     'first_name' => $data['first_name'],
@@ -113,11 +117,18 @@ class RegisterController extends Controller
             $username       = $data['username'];
             $password       = $data['password'];
 
-
-            Mail::send("emails.RegisterEmail", ['first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'username' => $username, 'password' => $password], function($message)  use ($email){
-                $message->to($email);
-                $message->subject("You'r account has been created successfully!!!");
-            });
+            $response = Http::post('http://127.0.0.1:8081/api/emailservice', [
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'username' => $username,
+                'password' => $password
+            ]);
+//            dd($response);
+//            Mail::send("emails.RegisterEmail", ['first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'username' => $username, 'password' => $password], function($message)  use ($email){
+//                $message->to($email);
+//                $message->subject("You'r account has been created successfully!!!");
+//            });
             /********* Email ***********/
             return User::create([
                 'first_name' => $data['first_name'],

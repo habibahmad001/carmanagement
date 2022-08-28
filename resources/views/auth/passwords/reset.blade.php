@@ -22,11 +22,11 @@
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <form id="reset_blade" method="POST" action="/password/reset_password">
+                            <form id="reset_blade" method="POST" action="{!! URL::to("/password/reset_password") !!}">
                                  {{ csrf_field() }}
                             <input type="hidden" name="token" value="{{ $token }}">
 
-                                
+
 
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -46,7 +46,7 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                     @endif
-                                    
+
                                 </div>
 
                                 <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
@@ -56,11 +56,11 @@
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                                     @endif
-                                    
+
                                 </div>
 
 
-                                
+
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-default start-playing">Reset Password</button>
                                 </div>

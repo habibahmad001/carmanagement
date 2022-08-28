@@ -1,4 +1,4 @@
-
+var url = $("#purl").val();
 $(".add-button").click(function () {
   reset_form();
   showFormOverlay();
@@ -22,7 +22,7 @@ $(".edit-icon").click(function () {
     duration: 500,
   });
 
-  $.get('/getusers/' + user_id, function(data){
+  $.get( url + '/getusers/' + user_id, function(data){
 
     $(".loading-container").fadeOut();
     $(".form-content-box").fadeIn();

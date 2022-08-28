@@ -4,14 +4,14 @@
     <h3>Edit Question</h3>
     <div class="close-icon"></div>
   </div>
-  <form method="POST" id="category_form" action="/question-update" accept-charset="UTF-8" onSubmit="return validate('edit-');">
+  <form method="POST" id="category_form" action="{!! URL::to("/question-update") !!}" accept-charset="UTF-8" onSubmit="return validate('edit-');">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" name="question_id" id="question_id" value="">
     <div class="form-height-control">
       <div style="color:red" id="form-errors">
       </div>
 
-       
+
       <div class="form-line">
         <textarea name="question" id="edit-question" placeholder="Write Your question here"></textarea>
       </div>
@@ -38,7 +38,7 @@
         </select>
       </div>
 
-      
+
 
     </div>
     <div class="form-footer">
